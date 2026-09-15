@@ -6,10 +6,6 @@ APScheduler, see the :doc:`migration section <migration>`.
 
 **UNRELEASED**
 
-- Fixed combining triggers comparing local clock times instead of absolute instants,
-  which could skip or duplicate runs in ``OrTrigger`` and incorrectly match or discard
-  runs in ``AndTrigger`` around daylight saving time transitions
-  (`#1137 <https://github.com/agronholm/apscheduler/pull/1137>`_; PR by @Kuang-xianxin)
 - **BREAKING** Switched the MongoDB data store to use the asynchronous API in
   ``pymongo`` and bumped the minimum ``pymongo`` version to v4.13.0
 - Bumped up the CBOR serializer's ``cbor2`` dependency to v6.0+
@@ -35,6 +31,10 @@ APScheduler, see the :doc:`migration section <migration>`.
   (`#1131 <https://github.com/agronholm/apscheduler/issues/1131>`_; PR by @afonsojanu)
 - Fixed ``CalendarIntervalTrigger`` skipping valid dates or shifting subsequent run dates
   when a nonexistent local time normalizes past midnight during a forward DST shift
+- Fixed combining triggers comparing local clock times instead of absolute instants,
+  which could skip or duplicate runs in ``OrTrigger`` and incorrectly match or discard
+  runs in ``AndTrigger`` around daylight saving time transitions
+  (`#1137 <https://github.com/agronholm/apscheduler/pull/1137>`_; PR by @Kuang-xianxin)
 
 **4.0.0a6**
 
